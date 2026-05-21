@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRM de leads — MineConnect Labs</title>
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .crm-wrap { max-width: 1000px; margin: 0 auto; padding: 30px 22px 80px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 24px 0; }
+    @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+    .stat { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; text-align: center; }
+    .stat .n { font-size: 1.8rem; font-weight: 800; }
+    .stat .l { color: var(--muted); font-size: .85rem; }
+    .toolbar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 18px; }
+    .toolbar input, .toolbar select { width: auto; flex: 1; min-width: 160px; }
+    table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 14px; overflow: hidden; }
+    th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--line); font-size: .92rem; }
+    th { color: var(--muted); font-weight: 700; font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; }
+    td select { padding: 6px 8px; font-size: .85rem; }
+    .empty { text-align: center; color: var(--muted); padding: 40px; }
+    .del { color: #ff7a7a; cursor: pointer; background: none; border: none; font-size: 1rem; }
+    .badge-estado { font-size: .75rem; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line); }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="index.html"><span class="dot"></span> MineConnect <span style="color:var(--brand)">Labs</span></a>
+      <nav class="nav-links"><a href="index.html">← Volver a la landing</a></nav>
+    </div>
+  </header>
+
+  <div class="crm-wrap">
+    <span class="eyebrow">Panel interno</span>
+    <h1 style="font-size:2rem;margin:8px 0 4px">CRM de leads</h1>
+    <p class="muted">Cargá los pedidos que te llegan por WhatsApp y seguí su estado. Los datos quedan guardados en este navegador (privado, sin servidores).</p>
+
+    <div class="stats" id="stats"></div>
+
+    <details class="card" style="margin-bottom:20px">
+      <summary style="cursor:pointer;font-weight:700">+ Agregar lead manualmente</summary>
+      <form id="crm-form" style="margin-top:16px">
+        <div class="grid grid-2" style="gap:12px">
+          <div><label>Nombre *</label><input id="c-nombre" type="text" /></div>
+          <div><label>Negocio</label><input id="c-negocio" type="text" /></div>
+        </div>
+        <div class="grid grid-2" style="gap:12px">
+          <div><label>Tipo de proyecto</label><input id="c-tipo" type="text" placeholder="Landing, app..." /></div>
+          <div><label>Contacto (email/tel) *</label><input id="c-contacto" type="text" /></div>
+        </div>
+        <label>Detalle</label><textarea id="c-detalle"></textarea>
+        <button class="btn btn-primary" type="submit" style="margin-top:14px">Guardar lead</button>
+      </form>
+    </details>
+
+    <div class="toolbar">
+      <input id="buscar" type="text" placeholder="🔎 Buscar por nombre, negocio o contacto..." />
+      <select id="filtro-estado"></select>
+      <button class="btn btn-ghost" id="exportar">⬇ Exportar CSV</button>
+    </div>
+
+    <table>
+      <thead><tr><th>Nombre</th><th>Negocio</th><th>Tipo</th><th>Contacto</th><th>Estado</th><th></th></tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div class="empty" id="empty" style="display:none">Todavía no hay leads. Cargá el primero arriba ☝️</div>
+  </div>
+
+  <script type="module" src="assets/js/app-crm.js"></script>
+</body>
+</html>

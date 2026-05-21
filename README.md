@@ -29,14 +29,22 @@ Para previsualizar localmente, servila como estática:
 npx serve .       # o cualquier servidor estático; abrir index.html
 ```
 
+## CRM de leads (`crm.html`)
+Panel interno para anotar y seguir los leads que llegan por WhatsApp: estados
+(nuevo → contactado → presupuestado → cerrado/perdido), búsqueda, tasa de cierre
+y exportación a CSV. Persiste en `localStorage` del navegador (privado, sin servidores).
+
 ## Estructura
 ```
 index.html                 Landing (una sola página)
+crm.html                   CRM interno de leads (localStorage)
 assets/css/styles.css      Estilos
-assets/js/app.js           Capa de interfaz (cablea la lógica al DOM)
+assets/js/app.js           Interfaz de la landing
+assets/js/app-crm.js       Interfaz del CRM
 assets/js/lib/leads.js     Validación + armado de mensaje/links (puro, testeado)
 assets/js/lib/pricing.js   Planes + cotizador (puro, testeado)
-tests/                     Tests jest
+assets/js/lib/crm.js       Lógica del CRM: dedupe, estados, stats, CSV (puro, testeado)
+tests/                     Tests jest (48 en total)
 ```
 
 ## Deploy
