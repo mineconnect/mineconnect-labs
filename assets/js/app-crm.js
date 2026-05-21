@@ -59,20 +59,25 @@ function render() {
     .join('');
 
   $('#empty').style.display = leads.length === 0 ? 'block' : 'none';
+}
 
-  tbody.querySelectorAll('.estado-sel').forEach((sel) => {
-    sel.addEventListener('change', () => {
-      leads = actualizarEstado(leads, sel.dataset.id, sel.value);
-      guardar(leads);
-      render();
-    });
+// Delegación de eventos: un solo par de listeners en el <tbody>, enganchados
+// una vez en init(). render() solo actualiza el HTML, no re-bindea por fila.
+function initTablaDelegada() {
+  const tbody = $('#tbody');
+  tbody.addEventListener('change', (e) => {
+    const sel = e.target.closest('.estado-sel');
+    if (!sel) return;
+    leads = actualizarEstado(leads, sel.dataset.id, sel.value);
+    guardar(leads);
+    render();
   });
-  tbody.querySelectorAll('[data-del]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      leads = eliminarLead(leads, btn.dataset.del);
-      guardar(leads);
-      render();
-    });
+  tbody.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-del]');
+    if (!btn) return;
+    leads = eliminarLead(leads, btn.dataset.del);
+    guardar(leads);
+    render();
   });
 }
 
@@ -123,4 +128,5 @@ $('#exportar').addEventListener('click', () => {
 });
 
 initFiltros();
+initTablaDelegada();
 render();

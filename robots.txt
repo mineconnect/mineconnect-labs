@@ -1,2 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /crm.html
+
+Sitemap: https://mineconnect.github.io/mineconnect-labs/sitemap.xml
