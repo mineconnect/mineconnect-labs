@@ -11,6 +11,8 @@ export function secuenciaPorRubro(rubro = '') {
   if (/(gimnasio|gym|fitness|crossfit)/.test(r)) return 'B';
   if (/(bar|cerve|resto|gastro|caf|pub|pizz)/.test(r)) return 'A';
   if (/(curso|academia|formaci)/.test(r)) return 'D';
+  if (/(estética|estetica|peluquer|belleza|spa|cejas|lash|uñas|nail|barber)/.test(r)) return 'E';
+  if (/(ferreter|corral|veterinar|repuesto|comercio|kiosco|kiosko|almac)/.test(r)) return 'F';
   return 'C';
 }
 
@@ -73,6 +75,34 @@ export function plantilla(secuencia, paso, negocio = 'tu negocio') {
       3: {
         asunto: `Último sobre los cursos, ${n}`,
         cuerpo: `No te escribo más por ahora. Si te interesa formar a tu equipo en IA, quedo a un mensaje de distancia. ¡Éxitos!\n\n${firma}`,
+      },
+    },
+    E: {
+      1: {
+        asunto: `${n}: turnos online y menos ausencias`,
+        cuerpo: `Hola ${n}, soy Facundo de MineConnect Labs 👋\n\nHago webs para estética/peluquería con turnos online y recordatorio automático por WhatsApp (menos clientas que no aparecen). En días y sin abonos: queda tuya.\n\n¿Te muestro cómo quedaría para ${n}? ${URL_LANDING}\n\n${firma}`,
+      },
+      2: {
+        asunto: `Re: ${n}: turnos online`,
+        cuerpo: `Hola, un dato: el recordatorio automático de turno baja bastante las ausencias y te ahorra horas de WhatsApp a mano. ¿Te armo un presupuesto para ${n}?\n\n${firma}`,
+      },
+      3: {
+        asunto: `Cierro el tema, ${n}`,
+        cuerpo: `Este es el último. Si más adelante querés ordenar los turnos de ${n} con una web propia, escribime cuando quieras. ¡Éxitos! ✨\n\n${firma}`,
+      },
+    },
+    F: {
+      1: {
+        asunto: `${n}: catálogo online y pedidos`,
+        cuerpo: `Hola ${n}, soy Facundo de MineConnect Labs 👋\n\nHago webs con catálogo y pedidos directos a WhatsApp para comercios. Aparecés en Google cuando te buscan y vendés sin estar atado a una plataforma. En días y sin abonos.\n\n¿Te paso una propuesta para ${n}? ${URL_LANDING}\n\n${firma}`,
+      },
+      2: {
+        asunto: `Re: ${n}: catálogo online`,
+        cuerpo: `Hola, por si quedó en el tintero: un catálogo propio con búsqueda y pedido por WhatsApp te ahorra mandar fotos y precios uno por uno. ¿Lo vemos para ${n}?\n\n${firma}`,
+      },
+      3: {
+        asunto: `Cierro el tema, ${n}`,
+        cuerpo: `Último, prometido. Si más adelante querés tu catálogo o web propia para ${n}, escribime cuando quieras. ¡Gracias y éxitos!\n\n${firma}`,
       },
     },
   };

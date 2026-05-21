@@ -14,7 +14,10 @@ describe('secuenciaPorRubro', () => {
     expect(secuenciaPorRubro('Gimnasio')).toBe('B');
     expect(secuenciaPorRubro('Bar / cervecería')).toBe('A');
     expect(secuenciaPorRubro('Academia de formación')).toBe('D');
-    expect(secuenciaPorRubro('Ferretería')).toBe('C');
+    expect(secuenciaPorRubro('Peluquería y estética')).toBe('E');
+    expect(secuenciaPorRubro('Ferretería')).toBe('F');
+    expect(secuenciaPorRubro('Corralón')).toBe('F');
+    expect(secuenciaPorRubro('Inmobiliaria')).toBe('C');
     expect(secuenciaPorRubro('')).toBe('C');
   });
 });
@@ -33,6 +36,16 @@ describe('plantilla', () => {
   });
   test('secuencia desconocida usa C', () => {
     expect(plantilla('Z', 1, 'X').asunto).toBe(plantilla('C', 1, 'X').asunto);
+  });
+  test('E (estética) y F (comercio) personalizan y firman', () => {
+    const e = plantilla('E', 1, 'Spa Luz');
+    expect(e.asunto).toContain('Spa Luz');
+    expect(e.cuerpo).toContain('turnos');
+    expect(e.cuerpo).toContain('MineConnect Labs');
+    const f = plantilla('F', 1, 'Ferretería Sur');
+    expect(f.asunto).toContain('Ferretería Sur');
+    expect(f.cuerpo).toContain('catálogo');
+    expect(f.cuerpo).toContain('MineConnect Labs');
   });
 });
 

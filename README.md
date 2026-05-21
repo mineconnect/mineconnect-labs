@@ -16,20 +16,23 @@ mensaje estructurado que dispara a:
 
 No requiere backend ni servicios pagos: el lead llega íntegro al canal de venta.
 
-## Activar (gratis) — recomendado
+## Recepción de leads (ya configurada)
 
-Dos pasos opcionales que cierran el embudo. Hasta que los configures, el sitio
-funciona igual (los helpers son no-op).
+El formulario manda cada lead a **FormSubmit** (`assets/js/lib/backend.js`), que lo
+reenvía por email a `contacto@mineconnect.com.ar` **sin necesidad de cuenta ni
+servidor**. Así el lead llega aunque el visitante no apriete WhatsApp.
 
-1. **Recibir los leads aunque no aprieten WhatsApp** — el agujero del embudo.
-   - Crear un form gratis en [Formspree](https://formspree.io) (50 envíos/mes) con `contacto@mineconnect.com.ar`.
-   - Pegar el endpoint en `FORMSPREE_ENDPOINT` (`assets/js/lib/backend.js`).
-   - Desde entonces, **cada lead te llega por email** apenas tocan "Enviar", sin depender de WhatsApp.
+> **Único paso manual, una sola vez:** la primera vez que llegue un lead,
+> FormSubmit envía un mail de activación a `contacto@mineconnect.com.ar`. Hay que
+> abrirlo y confirmar. Desde ahí, cada lead llega automáticamente.
 
-2. **Medir tráfico y conversiones** (Google Analytics 4, gratis).
-   - Crear una propiedad en [analytics.google.com](https://analytics.google.com) y copiar el Measurement ID (`G-XXXXXXXXXX`).
-   - Pegarlo en `GA_MEASUREMENT_ID` (`assets/js/lib/analytics.js`).
-   - Se registran eventos clave: `cta_plan`, `cta_curso`, `lead_enviado`.
+## Activar analytics (opcional, gratis)
+
+Para medir tráfico y conversiones con **Google Analytics 4** (requiere tu cuenta de Google):
+- Crear una propiedad en [analytics.google.com](https://analytics.google.com) y copiar el Measurement ID (`G-XXXXXXXXXX`).
+- Pegarlo en `GA_MEASUREMENT_ID` (`assets/js/lib/analytics.js`).
+- Se registran eventos clave: `cta_plan`, `cta_curso`, `lead_enviado`.
+- Mientras esté el placeholder, el tracking es no-op (no rompe nada).
 
 ## Desarrollo
 
@@ -61,8 +64,8 @@ assets/js/lib/pricing.js   Planes + cotizador (puro, testeado)
 assets/js/lib/crm.js       Lógica del CRM: dedupe, estados, stats, CSV (puro, testeado)
 assets/js/lib/casos.js     Proyectos/experiencia para prueba social (puro, testeado)
 assets/js/lib/analytics.js Google Analytics 4 con activación opcional (puro, testeado)
-assets/js/lib/backend.js   Envío del lead a Formspree — fix del embudo (puro, testeado)
-tests/                     Tests jest (140 en total)
+assets/js/lib/backend.js   Envío del lead a FormSubmit (sin cuenta) — fix del embudo (puro, testeado)
+tests/                     Tests jest
 ```
 
 ## Deploy

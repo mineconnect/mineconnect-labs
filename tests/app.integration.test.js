@@ -25,6 +25,8 @@ async function montar() {
 describe('integración app.js', () => {
   beforeEach(() => {
     window.open = jest.fn();
+    // El envío al backend es fire-and-forget; mockeamos fetch para no pegarle a la red real.
+    global.fetch = jest.fn(() => Promise.resolve({ ok: true }));
   });
 
   test('renderiza los 4 planes en el grid', async () => {
