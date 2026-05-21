@@ -39,6 +39,7 @@
   </script>
 </head>
 <body>
+  <canvas id="fx-bg" aria-hidden="true"></canvas>
   <header class="nav">
     <div class="container nav-inner">
       <a class="logo" href="#"><span class="dot"></span> MineConnect <span style="color:var(--brand)">Labs</span></a>
@@ -133,23 +134,16 @@
   </section>
 
   <!-- ACADEMIA IA -->
-  <section id="academia" style="background:var(--bg-soft)">
-    <div class="container grid grid-2" style="align-items:center">
-      <div>
+  <section id="academia">
+    <div class="container">
+      <div class="section-head">
         <span class="eyebrow">Academia IA</span>
-        <h2 style="font-size:clamp(1.8rem,4vw,2.6rem);margin:14px 0">Aprendé a automatizar tu negocio con Inteligencia Artificial</h2>
-        <p class="muted">Cursos prácticos, en español y con casos reales. Desde "primeros pasos con IA" hasta automatizaciones avanzadas para tu rubro. Plantillas y prompts listos para usar.</p>
-        <ul class="plan" style="list-style:none;margin:22px 0">
-          <li style="padding-left:26px;position:relative;margin-bottom:10px"><span style="position:absolute;left:0;color:var(--accent);font-weight:800">✓</span> Acceso inmediato y de por vida</li>
-          <li style="padding-left:26px;position:relative;margin-bottom:10px"><span style="position:absolute;left:0;color:var(--accent);font-weight:800">✓</span> Certificado de finalización</li>
-          <li style="padding-left:26px;position:relative;margin-bottom:10px"><span style="position:absolute;left:0;color:var(--accent);font-weight:800">✓</span> Comunidad y soporte</li>
-        </ul>
-        <a class="btn btn-primary" href="#contacto">Quiero info de los cursos →</a>
+        <h2>Cursos premium de IA, con todo el material que necesitás</h2>
+        <p class="muted">Aprendé a usar la IA para vender más y trabajar menos. Cada curso incluye temario completo, plantillas y una <strong>biblioteca curada de los mejores videos gratuitos de YouTube</strong> para que aprendas de verdad. Pagás el curso; el conocimiento te queda para siempre.</p>
       </div>
-      <div class="card center" style="padding:46px">
-        <div style="font-size:3rem">🎓</div>
-        <div class="precio" style="font-size:2.4rem;font-weight:800;margin:10px 0">desde $45.000</div>
-        <p class="muted">por curso · planes para equipos disponibles</p>
+      <div class="grid grid-3" id="cursos-grid"></div>
+      <div class="center" style="margin-top:34px">
+        <a class="btn btn-ghost" href="cursos.html">Ver el temario completo y el material gratis →</a>
       </div>
     </div>
   </section>

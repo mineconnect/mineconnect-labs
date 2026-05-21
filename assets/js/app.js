@@ -6,6 +6,8 @@ import {
   TIPOS_PROYECTO,
 } from './lib/leads.js';
 import { PLANES, getPlan, formatearARS, estimarProyecto } from './lib/pricing.js';
+import { CURSOS, totalLecciones, ahorro } from './lib/cursos.js';
+import { initFondo } from './fx-bg.js';
 
 const TELEFONO = '+54 9 383 432-7244';
 const EMAIL = 'contacto@mineconnect.com.ar';
@@ -63,6 +65,32 @@ function seleccionarTipoPorPlan(planId) {
     tipoSel.value = PLAN_A_TIPO[planId];
     actualizarEstimado();
   }
+}
+
+// --- Render de cursos premium ---
+function renderCursos() {
+  const grid = $('#cursos-grid');
+  if (!grid) return;
+  grid.innerHTML = CURSOS.map((c) => {
+    const a = ahorro(c);
+    return `
+    <div class="curso card ${c.destacado ? 'destacado' : ''}">
+      ${c.destacado ? '<span class="tag-pop">El más elegido</span>' : ''}
+      <span class="nivel">${c.nivel}</span>
+      <h3>${c.nombre}</h3>
+      <p class="promesa">${c.promesa}</p>
+      <div class="valor-real">Valor del material: ${formatearARS(c.valorReal)}</div>
+      <div class="precio">${formatearARS(c.precio)}</div>
+      <span class="ahorro">Ahorrás ${a.etiqueta} (${a.porcentaje}%)</span>
+      <div class="meta">${c.duracion} · ${totalLecciones(c)} clases · <span class="gratis-tag">+ videos gratis</span></div>
+      <ul>${c.incluye.map((i) => `<li>${i}</li>`).join('')}</ul>
+      <a class="btn ${c.destacado ? 'btn-primary' : 'btn-ghost'}" href="#contacto" data-curso="${c.id}">Inscribirme →</a>
+    </div>`;
+  }).join('');
+
+  grid.querySelectorAll('[data-curso]').forEach((btn) => {
+    btn.addEventListener('click', () => seleccionarTipoPorPlan('academia-ia'));
+  });
 }
 
 // --- Poblar el select de tipos ---
@@ -131,7 +159,11 @@ function manejarEnvio(e) {
 
 // --- Inicialización ---
 function init() {
+  const canvas = document.getElementById('fx-bg');
+  if (canvas) initFondo(canvas);
+
   renderPlanes();
+  renderCursos();
   renderTipos();
   actualizarEstimado();
 

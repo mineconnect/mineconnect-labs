@@ -41,13 +41,13 @@ export const PLANES = [
   {
     id: 'academia-ia',
     nombre: 'Academia IA',
-    desde: 45000,
+    desde: 89000,
     entrega: 'Acceso inmediato',
     incluye: [
-      'Cursos de automatización con Inteligencia Artificial',
-      'Casos prácticos para tu negocio real',
-      'Plantillas y prompts listos para usar',
-      'Certificado de finalización',
+      'Cursos premium de IA y automatización (3 niveles)',
+      'Biblioteca curada de material gratuito de YouTube',
+      'Plantillas, prompts y proyectos reales',
+      'Certificado y comunidad de soporte',
     ],
   },
 ];

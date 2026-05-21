@@ -7,6 +7,9 @@
 import fs from 'fs';
 import path from 'path';
 
+// jsdom no implementa canvas: devolvemos null para que el fondo salga limpio (sin ruido).
+HTMLCanvasElement.prototype.getContext = () => null;
+
 // jest se ejecuta desde la raíz del proyecto (labs/).
 const html = fs.readFileSync(path.join(process.cwd(), 'index.html'), 'utf8');
 // Tomamos solo el <body> para montarlo en jsdom.
@@ -30,6 +33,27 @@ describe('integración app.js', () => {
     expect(planes.length).toBe(4);
     expect(document.body.textContent).toContain('Landing Express');
     expect(document.body.textContent).toContain('Web Pro');
+  });
+
+  test('renderiza los 3 cursos premium con precio y ahorro', async () => {
+    await montar();
+    const cursos = document.querySelectorAll('#cursos-grid .curso');
+    expect(cursos.length).toBe(3);
+    expect(document.body.textContent).toContain('IA desde Cero');
+    expect(document.body.textContent).toContain('Ahorrás');
+    // El curso destacado muestra su etiqueta.
+    expect(document.querySelector('#cursos-grid .destacado')).not.toBeNull();
+  });
+
+  test('clic en "Inscribirme" preselecciona Curso de IA en el formulario', async () => {
+    await montar();
+    document.querySelector('#cursos-grid [data-curso]').dispatchEvent(new Event('click', { bubbles: true }));
+    expect(document.querySelector('#f-tipo').value).toBe('Curso de IA');
+  });
+
+  test('existe el canvas del fondo animado', async () => {
+    await montar();
+    expect(document.getElementById('fx-bg')).not.toBeNull();
   });
 
   test('pobla el select de tipos de proyecto', async () => {
