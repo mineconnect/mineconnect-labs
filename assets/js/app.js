@@ -119,7 +119,9 @@ function manejarEnvio(e) {
   pintarErrores(errores);
   if (!valido) {
     const primer = document.querySelector('.field-error:not(:empty)');
-    primer?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (typeof primer?.scrollIntoView === 'function') {
+      primer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
     return;
   }
   const url = construirUrlWhatsapp(lead, TELEFONO);
