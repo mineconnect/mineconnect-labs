@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campaña de prospección — MineConnect Labs</title>
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .camp-wrap { max-width: 1000px; margin: 0 auto; padding: 30px 22px 90px; }
+    .barra { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin:18px 0; }
+    .barra select { width:auto; }
+    .progreso { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; font-weight:700; }
+    .progreso b { color:var(--accent); }
+    .neg { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; margin-bottom:14px; }
+    .neg.enviado { border-color: var(--accent); box-shadow:0 0 0 1px var(--accent) inset; }
+    .neg-top { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center; }
+    .neg h3 { font-size:1.15rem; margin:0; }
+    .neg .sub { color:var(--muted); font-size:.85rem; }
+    .canal { font-size:.75rem; font-weight:700; padding:3px 10px; border-radius:999px; border:1px solid var(--line); }
+    .canal.email { color:#ff9a62; } .canal.whatsapp { color:#25d366; } .canal.instagram { color:#d36ad3; } .canal.tel { color:var(--brand); } .canal.ninguno { color:var(--muted); }
+    .neg-acciones { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:14px; }
+    .neg-acciones input[type=email] { width:auto; flex:1; min-width:200px; }
+    .preview { margin-top:12px; }
+    .preview summary { cursor:pointer; color:var(--muted); font-size:.85rem; }
+    .preview pre { white-space:pre-wrap; background:#0d1322; border:1px solid var(--line); border-radius:10px; padding:12px; font-size:.85rem; margin-top:8px; font-family:inherit; color:var(--txt); }
+    .check { display:flex; align-items:center; gap:8px; font-weight:600; }
+    .nota { color:#ffce6a; font-size:.82rem; margin-top:8px; }
+  </style>
+</head>
+<body>
+  <canvas id="fx-bg" aria-hidden="true"></canvas>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="index.html"><span class="dot"></span> MineConnect <span style="color:var(--brand)">Labs</span></a>
+      <nav class="nav-links"><a href="index.html">← Volver</a><a href="crm.html">CRM</a></nav>
+    </div>
+  </header>
+
+  <div class="camp-wrap">
+    <span class="eyebrow">Panel interno</span>
+    <h1 style="font-size:2rem;margin:6px 0 4px">Campaña: enviá con 1 click</h1>
+    <p class="muted">Elegí el paso del mensaje y tocá <strong>Enviar</strong> en cada negocio: se abre el canal correcto (Gmail si hay email, WhatsApp si hay celular, Instagram si solo hay IG) con el mensaje <strong>ya escrito y personalizado</strong>. Vos solo revisás y mandás. Tu progreso queda guardado en este navegador.</p>
+
+    <div class="barra">
+      <label style="margin:0">Paso del mensaje:</label>
+      <select id="paso">
+        <option value="1">Paso 1 · Primer contacto</option>
+        <option value="2">Paso 2 · Seguimiento (4 días)</option>
+        <option value="3">Paso 3 · Cierre (8 días)</option>
+      </select>
+      <div class="progreso" id="progreso"></div>
+    </div>
+
+    <div id="lista"></div>
+
+    <p class="muted" style="margin-top:20px;font-size:.85rem">Negocios cargados desde fuentes públicas (directorios y redes de Catamarca). ¿No tienen email? Pegá uno en el casillero del negocio y el botón pasa a abrir Gmail automáticamente. Para sumar más, usá el CRM o pedime que cargue otra tanda.</p>
+  </div>
+
+  <script type="module" src="assets/js/app-campana.js"></script>
+</body>
+</html>
