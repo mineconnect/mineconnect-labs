@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0e1a"/><stop offset="1" stop-color="#111729"/>
+    </linearGradient>
+    <radialGradient id="g1" cx="0.2" cy="0.15" r="0.7">
+      <stop offset="0" stop-color="#7c5cff" stop-opacity="0.4"/><stop offset="1" stop-color="#7c5cff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="0.9" cy="0.9" r="0.7">
+      <stop offset="0" stop-color="#2ee6a6" stop-opacity="0.28"/><stop offset="1" stop-color="#2ee6a6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4f8cff"/><stop offset="1" stop-color="#2ee6a6"/>
+    </linearGradient>
+  </defs><rect width="1080" height="1080" fill="url(#bg)"/><rect width="1080" height="1080" fill="url(#g1)"/><rect width="1080" height="1080" fill="url(#g2)"/><rect x="80" y="80" width="40" height="40" rx="11" fill="url(#grad)"/><text x="135" y="110" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="800" text-anchor="start" fill="#e8edf7">MineConnect Labs</text><text x="540" y="360" font-family="Helvetica, Arial, sans-serif" font-size="80" font-weight="800" text-anchor="middle" fill="#e8edf7">PRESUPUESTO</text><text x="540" y="470" font-family="Helvetica, Arial, sans-serif" font-size="110" font-weight="800" text-anchor="middle" fill="url(#grad)">GRATIS</text><text x="540" y="600" font-family="Helvetica, Arial, sans-serif" font-size="44" font-weight="500" text-anchor="middle" fill="#9aa7c2">Contanos tu idea hoy</text><text x="540" y="670" font-family="Helvetica, Arial, sans-serif" font-size="44" font-weight="500" text-anchor="middle" fill="#9aa7c2">y en días la tenés online</text><text x="540" y="820" font-family="Helvetica, Arial, sans-serif" font-size="46" font-weight="700" text-anchor="middle" fill="#4f8cff">📲 +54 9 383 432-7244</text><text x="80" y="1000" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="700" text-anchor="start" fill="#4f8cff">mineconnect.com.ar</text><text x="1000" y="1000" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="600" text-anchor="end" fill="#9aa7c2">@mineconnect.labs</text></svg>
