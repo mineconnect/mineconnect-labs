@@ -58,6 +58,8 @@ negocio,rubro,contacto_email,contacto_tel,ciudad,fuente,secuencia,estado,notas
 
 - **Al principio (0-100 contactos): a mano.** Más personal, mejor entrega, aprendés qué funciona.
 - **Cuando ya tengas un mensaje que convierte y volumen:** ahí sí conectamos una
-  herramienta de envío (con tu login) y, si el volumen lo pide, te armo un
-  importador del CSV directo al CRM. No antes: automatizar algo que todavía no
+  herramienta de envío (con tu login). No antes: automatizar algo que todavía no
   vende solo multiplica el ruido.
+
+> **Ya disponible:** el CRM (`crm.html`) tiene botón **"Importar prospectos"** que
+> carga este CSV directo al tablero (deduplica por contacto y omite filas sin datos).

@@ -44,7 +44,7 @@ assets/js/app-crm.js       Interfaz del CRM
 assets/js/lib/leads.js     Validación + armado de mensaje/links (puro, testeado)
 assets/js/lib/pricing.js   Planes + cotizador (puro, testeado)
 assets/js/lib/crm.js       Lógica del CRM: dedupe, estados, stats, CSV (puro, testeado)
-tests/                     Tests jest (54 en total)
+tests/                     Tests jest (68 en total)
 ```
 
 ## Deploy

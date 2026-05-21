@@ -58,8 +58,11 @@
     <div class="toolbar">
       <input id="buscar" type="text" placeholder="🔎 Buscar por nombre, negocio o contacto..." />
       <select id="filtro-estado"></select>
+      <button class="btn btn-ghost" id="importar">⬆ Importar prospectos</button>
+      <input id="file-csv" type="file" accept=".csv,text/csv" style="display:none" />
       <button class="btn btn-ghost" id="exportar">⬇ Exportar CSV</button>
     </div>
+    <p class="muted" id="import-msg" style="margin:-8px 0 14px;min-height:1em"></p>
 
     <table>
       <thead><tr><th>Nombre</th><th>Negocio</th><th>Tipo</th><th>Contacto</th><th>Estado</th><th></th></tr></thead>

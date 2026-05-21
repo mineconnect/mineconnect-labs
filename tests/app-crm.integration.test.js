@@ -78,6 +78,24 @@ describe('integración CRM', () => {
     expect(JSON.parse(localStorage.getItem('mclabs_leads'))).toHaveLength(0);
   });
 
+  test('importar un CSV de prospectos agrega filas a la tabla', async () => {
+    await montar();
+    const csv = `negocio,rubro,contacto_email,contacto_tel,ciudad,fuente,secuencia,estado,notas
+Bar Sol,Gastronomía,sol@bar.com,,Catamarca,Maps,A,pendiente,sin web
+Gym Fuerza,Gimnasio,,3834000000,Catamarca,IG,B,pendiente,cuotas`;
+    const input = document.querySelector('#file-csv');
+    const file = new File([csv], 'prospectos.csv', { type: 'text/csv' });
+    Object.defineProperty(input, 'files', { value: [file], configurable: true });
+    input.dispatchEvent(new Event('change', { bubbles: true }));
+
+    // FileReader es asíncrono: esperamos a que se procese.
+    await new Promise((r) => setTimeout(r, 30));
+
+    expect(document.querySelectorAll('#tbody tr').length).toBe(2);
+    expect(document.querySelector('#import-msg').textContent).toContain('importado');
+    expect(JSON.parse(localStorage.getItem('mclabs_leads'))).toHaveLength(2);
+  });
+
   test('el buscador filtra las filas visibles', async () => {
     await montar();
     for (const [n, c, neg] of [['Ana', 'a@x.com', 'Bar Sol'], ['Beto', 'b@x.com', 'Gym Fuerza']]) {

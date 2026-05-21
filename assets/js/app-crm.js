@@ -8,6 +8,7 @@ import {
   estadisticas,
   aCSV,
 } from './lib/crm.js';
+import { importarProspectos } from './lib/csv.js';
 
 const KEY = 'mclabs_leads';
 const $ = (s) => document.querySelector(s);
@@ -114,6 +115,26 @@ $('#crm-form').addEventListener('submit', (e) => {
   e.target.reset();
   e.target.closest('details').open = false;
   render();
+});
+
+// Importar prospectos desde un CSV (formato prospectos-template.csv).
+$('#importar').addEventListener('click', () => $('#file-csv').click());
+$('#file-csv').addEventListener('change', (e) => {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    const { lista, importados, omitidos } = importarProspectos(leads, reader.result, agregarLead);
+    leads = lista;
+    guardar(leads);
+    render();
+    const msg = $('#import-msg');
+    if (msg) {
+      msg.textContent = `✅ ${importados} prospecto(s) importado(s)${omitidos ? ` · ${omitidos} omitido(s) (sin contacto o duplicados)` : ''}.`;
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = ''; // permite re-importar el mismo archivo
 });
 
 $('#exportar').addEventListener('click', () => {
