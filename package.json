@@ -1,0 +1,28 @@
+{
+  "name": "mineconnect-labs",
+  "version": "1.0.0",
+  "description": "Landing de MineConnect Labs — software a medida en días + academia de IA",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/preset-env": "^7.24.0",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ],
+    "collectCoverageFrom": [
+      "assets/js/lib/**/*.js"
+    ]
+  }
+}
