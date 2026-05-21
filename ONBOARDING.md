@@ -30,7 +30,7 @@ npx serve .      # previsualizar la landing localmente (o abrir index.html)
 | `assets/js/app.js` | Interfaz de la landing (cablea la lógica al DOM). |
 | `assets/js/app-crm.js` | Interfaz del CRM (delegación de eventos + localStorage). |
 | `assets/og-image.{svg,png}` | Imagen de preview al compartir el link. |
-| `tests/` | Tests jest: 68 (unitarios de lógica pura + integración jsdom). | |
+| `tests/` | Tests jest: 68 (unitarios de lógica pura + integración jsdom). |
 | `EMAIL-SEQUENCES.md` | 4 secuencias de prospección en frío listas para enviar. |
 | `PROSPECCION.md` + `prospectos-template.csv` | Guía de fuentes + plantilla para cargar negocios. |
 
