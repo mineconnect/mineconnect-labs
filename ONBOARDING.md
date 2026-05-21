@@ -13,7 +13,7 @@ Stack estático (HTML/CSS/JS ES Modules, sin build) desplegado en GitHub Pages.
 
 ```bash
 npm install      # solo dependencias de test (jest + babel)
-npm test         # 96 tests; deben pasar todos
+npm test         # 118 tests; deben pasar todos
 npx serve .      # previsualizar la landing localmente (o abrir index.html)
 ```
 
@@ -34,7 +34,7 @@ npx serve .      # previsualizar la landing localmente (o abrir index.html)
 | `assets/js/app.js` | Interfaz de la landing (planes, cursos, fondo, formulario). |
 | `assets/js/app-crm.js` | Interfaz del CRM (delegación de eventos + localStorage). |
 | `assets/og-image.{svg,png}` | Imagen de preview al compartir el link. |
-| `tests/` | Tests jest: 96 (unitarios de lógica pura + integración jsdom). |
+| `tests/` | Tests jest: 118 (unitarios de lógica pura + integración jsdom). |
 | `EMAIL-SEQUENCES.md` | 4 secuencias de prospección en frío listas para enviar. |
 | `PROSPECCION.md` + `prospectos-template.csv` | Guía de fuentes + plantilla para cargar negocios. |
 
@@ -43,7 +43,7 @@ npx serve .      # previsualizar la landing localmente (o abrir index.html)
 - **Toda lógica de negocio va en `assets/js/lib/*.js` como funciones puras** (sin DOM),
   y se testea con jest. La capa `app*.js` solo cablea esa lógica al DOM.
 - Los datos de usuario que se renderizan en el CRM se escapan con `escapar()` (anti-XSS).
-- Antes de dar algo por terminado: `npm test` en verde (96/96 hoy).
+- Antes de dar algo por terminado: `npm test` en verde (118/118 hoy).
 
 ## Deploy
 
