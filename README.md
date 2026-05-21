@@ -16,6 +16,21 @@ mensaje estructurado que dispara a:
 
 No requiere backend ni servicios pagos: el lead llega íntegro al canal de venta.
 
+## Activar (gratis) — recomendado
+
+Dos pasos opcionales que cierran el embudo. Hasta que los configures, el sitio
+funciona igual (los helpers son no-op).
+
+1. **Recibir los leads aunque no aprieten WhatsApp** — el agujero del embudo.
+   - Crear un form gratis en [Formspree](https://formspree.io) (50 envíos/mes) con `contacto@mineconnect.com.ar`.
+   - Pegar el endpoint en `FORMSPREE_ENDPOINT` (`assets/js/lib/backend.js`).
+   - Desde entonces, **cada lead te llega por email** apenas tocan "Enviar", sin depender de WhatsApp.
+
+2. **Medir tráfico y conversiones** (Google Analytics 4, gratis).
+   - Crear una propiedad en [analytics.google.com](https://analytics.google.com) y copiar el Measurement ID (`G-XXXXXXXXXX`).
+   - Pegarlo en `GA_MEASUREMENT_ID` (`assets/js/lib/analytics.js`).
+   - Se registran eventos clave: `cta_plan`, `cta_curso`, `lead_enviado`.
+
 ## Desarrollo
 
 ```bash
@@ -44,7 +59,10 @@ assets/js/app-crm.js       Interfaz del CRM
 assets/js/lib/leads.js     Validación + armado de mensaje/links (puro, testeado)
 assets/js/lib/pricing.js   Planes + cotizador (puro, testeado)
 assets/js/lib/crm.js       Lógica del CRM: dedupe, estados, stats, CSV (puro, testeado)
-tests/                     Tests jest (118 en total)
+assets/js/lib/casos.js     Proyectos/experiencia para prueba social (puro, testeado)
+assets/js/lib/analytics.js Google Analytics 4 con activación opcional (puro, testeado)
+assets/js/lib/backend.js   Envío del lead a Formspree — fix del embudo (puro, testeado)
+tests/                     Tests jest (140 en total)
 ```
 
 ## Deploy

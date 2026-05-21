@@ -7,6 +7,9 @@ import {
 } from './lib/leads.js';
 import { PLANES, getPlan, formatearARS, estimarProyecto } from './lib/pricing.js';
 import { CURSOS, totalLecciones, ahorro } from './lib/cursos.js';
+import { CASOS, casosVisibles } from './lib/casos.js';
+import { initAnalytics, track } from './lib/analytics.js';
+import { enviarLead } from './lib/backend.js';
 import { initFondo } from './fx-bg.js';
 
 const TELEFONO = '+54 9 383 432-7244';
@@ -37,7 +40,10 @@ function renderPlanes() {
   grid.querySelectorAll('[data-plan]').forEach((btn) => {
     btn.addEventListener('click', () => {
       const plan = getPlan(btn.dataset.plan);
-      if (plan) seleccionarTipoPorPlan(plan.id);
+      if (plan) {
+        track('cta_plan', { plan: plan.id });
+        seleccionarTipoPorPlan(plan.id);
+      }
     });
   });
 }
@@ -89,8 +95,31 @@ function renderCursos() {
   }).join('');
 
   grid.querySelectorAll('[data-curso]').forEach((btn) => {
-    btn.addEventListener('click', () => seleccionarTipoPorPlan('academia-ia'));
+    btn.addEventListener('click', () => {
+      track('cta_curso', { curso: btn.dataset.curso });
+      seleccionarTipoPorPlan('academia-ia');
+    });
   });
+}
+
+// --- Render de casos / experiencia ---
+function renderCasos() {
+  const grid = $('#casos-grid');
+  if (!grid) return;
+  const lista = casosVisibles(CASOS);
+  grid.innerHTML = lista.map((c) => {
+    const link = c.url
+      ? `<a class="caso-link" href="${c.url}" target="_blank" rel="noopener">Ver →</a>`
+      : '';
+    return `
+    <div class="caso card">
+      <span class="nivel">${c.rubro}</span>
+      <h3>${c.titulo}</h3>
+      <p class="muted">${c.descripcion}</p>
+      <div class="caso-tags">${c.etiquetas.map((t) => `<span class="tag">${t}</span>`).join('')}</div>
+      ${link}
+    </div>`;
+  }).join('');
 }
 
 // --- Poblar el select de tipos ---
@@ -152,6 +181,12 @@ function manejarEnvio(e) {
     }
     return;
   }
+  // Fix del embudo: mandamos el lead al backend SIEMPRE (no depende de WhatsApp).
+  // Fire-and-forget: no bloqueamos la apertura de WhatsApp ni rompemos si falla.
+  enviarLead(lead).then((r) => {
+    track('lead_enviado', { tipo: lead.tipo, backend: r.enviado ? 'ok' : r.motivo });
+  });
+
   const url = construirUrlWhatsapp(lead, TELEFONO);
   window.open(url, '_blank', 'noopener');
   $('#form-ok')?.classList.add('show');
@@ -162,8 +197,11 @@ function init() {
   const canvas = document.getElementById('fx-bg');
   if (canvas) initFondo(canvas);
 
+  initAnalytics();
+
   renderPlanes();
   renderCursos();
+  renderCasos();
   renderTipos();
   actualizarEstimado();
 
