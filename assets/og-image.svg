@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0e1a"/>
+      <stop offset="1" stop-color="#111729"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0.15" cy="0.3" r="0.6">
+      <stop offset="0" stop-color="#7c5cff" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#7c5cff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.95" cy="0.75" r="0.6">
+      <stop offset="0" stop-color="#2ee6a6" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2ee6a6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4f8cff"/>
+      <stop offset="1" stop-color="#2ee6a6"/>
+    </linearGradient>
+    <linearGradient id="dot" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f8cff"/>
+      <stop offset="1" stop-color="#2ee6a6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="1200" fill="url(#bg)"/>
+  <rect width="1200" height="1200" fill="url(#glow1)"/>
+  <rect width="1200" height="1200" fill="url(#glow2)"/>
+
+  <!-- Todo el contenido vive entre y=285 y y=915 (banda central de 630px) -->
+
+  <!-- Logo -->
+  <g transform="translate(80, 360)">
+    <rect x="0" y="0" width="34" height="34" rx="9" fill="url(#dot)"/>
+    <text x="50" y="26" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#e8edf7">MineConnect <tspan fill="#4f8cff">Labs</tspan></text>
+  </g>
+
+  <!-- Badge -->
+  <g transform="translate(80, 446)">
+    <rect x="0" y="0" width="334" height="44" rx="22" fill="#2ee6a6" fill-opacity="0.10" stroke="#2ee6a6" stroke-opacity="0.35"/>
+    <text x="26" y="29" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#2ee6a6">● Entregas en días, no en meses</text>
+  </g>
+
+  <!-- Headline -->
+  <text x="80" y="578" font-family="Helvetica, Arial, sans-serif" font-size="66" font-weight="800" fill="#e8edf7">Tu software a medida,</text>
+  <text x="80" y="656" font-family="Helvetica, Arial, sans-serif" font-size="66" font-weight="800" fill="url(#grad)">listo en días.</text>
+
+  <!-- Subtext -->
+  <text x="80" y="726" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="400" fill="#9aa7c2">Webs, apps y automatización con IA para PyMEs,</text>
+  <text x="80" y="764" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="400" fill="#9aa7c2">bares, gimnasios y locales. Sin suscripciones eternas.</text>
+
+  <!-- Footer -->
+  <text x="80" y="858" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#4f8cff">mineconnect.github.io/mineconnect-labs</text>
+  <text x="1120" y="858" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="600" fill="#9aa7c2">+54 9 383 432-7244</text>
+</svg>
