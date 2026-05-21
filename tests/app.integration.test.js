@@ -91,6 +91,13 @@ describe('integración app.js', () => {
     expect(document.querySelector('#form-ok').classList.contains('show')).toBe(true);
   });
 
+  test('renderiza la sección de proyectos/casos', async () => {
+    await montar();
+    const casos = document.querySelectorAll('#casos-grid .caso');
+    expect(casos.length).toBeGreaterThanOrEqual(2);
+    expect(document.body.textContent).toContain('MineConnect Labs');
+  });
+
   test('el botón de mailto apunta al correo del negocio', async () => {
     await montar();
     document.querySelector('#f-nombre').value = 'Ana';

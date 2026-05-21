@@ -22,7 +22,7 @@ export function plantilla(secuencia, paso, negocio = 'tu negocio') {
     A: {
       1: {
         asunto: `${n}: una idea para los pedidos`,
-        cuerpo: `Hola ${n}, ¿cómo va? Soy Facundo, de MineConnect Labs.\n\nVi que toman pedidos por WhatsApp/DM a mano. Armamos webs y mini-apps de pedidos a medida para bares —menú, reservas y pedido directo a WhatsApp— y las entregamos en pocos días, sin suscripciones eternas: la herramienta queda tuya.\n\n¿Te tiro una idea concreta para ${n}? Mirá un ejemplo: ${URL_LANDING}\n\n${firma}`,
+        cuerpo: `Hola ${n}, soy Facundo de MineConnect Labs 👋\n\nVi que toman pedidos a mano. Te armo una web con el menú y un botón que manda el pedido directo al local, en pocos días y sin abonos: queda tuya.\n\n¿Te muestro un ejemplo para ${n}? ${URL_LANDING}\n\n${firma}`,
       },
       2: {
         asunto: `Re: ${n}: una idea para los pedidos`,
@@ -36,7 +36,7 @@ export function plantilla(secuencia, paso, negocio = 'tu negocio') {
     B: {
       1: {
         asunto: `${n}: socios y cuotas en una app`,
-        cuerpo: `Hola ${n}, soy Facundo de MineConnect Labs.\n\nHacemos apps a medida para gimnasios: control de socios, vencimiento de cuotas, rutinas y avisos automáticos por WhatsApp. Entregamos en días y la app es tuya, sin abonos eternos.\n\n¿Te muestro cómo quedaría para ${n}? Ejemplos acá: ${URL_LANDING}\n\n${firma}`,
+        cuerpo: `Hola ${n}, soy Facundo de MineConnect Labs 👋\n\nHago apps para gimnasios: socios, cuotas vencidas y avisos automáticos por WhatsApp. En días, y la app queda tuya (sin abonos eternos).\n\n¿Te muestro cómo quedaría para ${n}? ${URL_LANDING}\n\n${firma}`,
       },
       2: {
         asunto: `Re: ${n}: socios y cuotas en una app`,
@@ -50,7 +50,7 @@ export function plantilla(secuencia, paso, negocio = 'tu negocio') {
     C: {
       1: {
         asunto: `${n} sin web propia`,
-        cuerpo: `Hola, soy Facundo de MineConnect Labs.\n\nBusqué a ${n} y no encontré web propia (o aparece solo en redes). Eso son clientes que te buscan y no te encuentran. Hacemos webs y sistemas a medida, en días y sin suscripciones.\n\n¿Te paso una propuesta para ${n}? Ejemplo: ${URL_LANDING}\n\n${firma}`,
+        cuerpo: `Hola, soy Facundo de MineConnect Labs 👋\n\nBusqué a ${n} y no tiene web propia: son clientes que te buscan y no te encuentran. Te armo una, en días y sin suscripciones.\n\n¿Te paso una propuesta para ${n}? ${URL_LANDING}\n\n${firma}`,
       },
       2: {
         asunto: `Re: ${n} sin web propia`,
